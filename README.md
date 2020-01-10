@@ -7,4 +7,5 @@ Alanine_Scan.py: this file designs guide RNAs and homology arms needed to change
 
 Saturated_Mutagenesis.py: this file designs guide RNAs and homology arms needed to change all the amino acids in a region of interest in a gene to all the possible amino acids. In this example, UBC4 gene was chosen and Alanine Scanned.
 
+gRNA design.py: this file is the main design file where all the guide RNA sequences, other than the Alanine Scan or Saturated Mutagenesis, were designed.
 
