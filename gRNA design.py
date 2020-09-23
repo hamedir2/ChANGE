@@ -1,5 +1,7 @@
 import csv
 import random
+#This is the function that sorts a given list of crRNAs based on different criteria described in the paper
+#These criteria include number of purines next to PAM, G/C content, position relative to ATG
 def sorting(crRNAlist):
     score=[]
     answer=[]
@@ -7,7 +9,7 @@ def sorting(crRNAlist):
     for i in range(0,len(crRNAlist)-1):
         z=int(crRNAlist[i][1])       
         crRNA=crRNAlist[i][0]        
-        lll=len(crRNAlist)
+        length=len(crRNAlist)
         purine=[]
         if crRNA[21:23]=='GG':
             if crRNA[0:2]=='CC':
@@ -24,9 +26,9 @@ def sorting(crRNAlist):
             c=crRNA[3:7]
             GC=gccounter(crRNA[3:23])
             AGS=0.25*c.count('C')+0.2*c.count('T')+0.15*c.count('G')
-        if i>=lll*0.8:
+        if i>=length*0.8:
             closetobegining=0
-        elif i>= lll*0.6:
+        elif i>= length*0.6:
             closetobegining=0.85
         else:
             closetobegining=1
@@ -232,7 +234,7 @@ def controlgen(number):
         con=con+1
         const=arms[con*2]+arms[2*con+1]+crRNA[con]+nexttopam[con]
         if 'TTTTT' in const or 'GGTCTC' in const or 'GAGACC' in const or 'GGGGGG' in const or 'AAAAAA' in const:
-            llll=2
+            length=2
         else:            
             answer.append(initialseq+const+finalseq)
     return answer
