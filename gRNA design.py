@@ -39,6 +39,7 @@ def sorting(crRNAlist):
         else:
             GCS=0
         #The final score is calculated here and appended to the list alongside its corresponding crRNA
+        # Refer to the paper for more details
         s=[100*(0.33333*GCS+0.33333*AGS+0.33333*closetobegining)/(z**2), crRNA]        
         score.append(s)
     #cleaning and sorting the list and preparing for output
