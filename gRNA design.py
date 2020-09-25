@@ -38,10 +38,10 @@ def sorting(crRNAlist):
             GCS=1
         else:
             GCS=0
-        
+        #The final score is calculated here and appended to the list alongside its corresponding crRNA
         s=[100*(0.33333*GCS+0.33333*AGS+0.33333*closetobegining)/(z**2), crRNA]        
         score.append(s)
-        
+    #cleaning and sorting the list and preparing for output
     score.sort(key=lambda tup: tup[0])
     for i in score:
         answer.append(i)
