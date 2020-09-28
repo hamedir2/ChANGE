@@ -81,7 +81,7 @@ def gccontent(seq):
         if seq[i]=='G':
             GC+=1            
     return GC*100/len(seq)
-#Reading the genome of SC
+#Reading the reference genome of SC
 file=open('Refer.txt','r')
 gene= file.read()
 file.close
@@ -100,7 +100,7 @@ for i in range(1,17):
 with open('All.txt','r') as nsg:
     reader = csv.reader(nsg, delimiter="\t")
     non = list(reader)
-
+#checking if the crRNA is on the positive or negative strand by analyzing the CRISPRdirect output
 def ifplus(seq):
     for i in allorfs:
         if seq==i[3]:
@@ -134,6 +134,7 @@ def HA(seq,seqname,plus):
     t=0
     chromenum=-1
     for i in non:        
+        #Mapping Chromosome Roman number to integer.
         if seqname=='#'+i[0].split(' ')[0]:
             chromelet=i[1]
             if chromelet=='I':
@@ -189,14 +190,9 @@ def HA(seq,seqname,plus):
             answer=chromosome[chromenum][a-2000+b-100:a-2000+b+100]
         else:            
             b=chromosome[chromenum][a-2000:a+2000].find(revcom(seq))
-            answer =revcom(chromosome[chromenum][a-2000+b-100:a-2000+b+100])
-    
-        
-        
+            answer =revcom(chromosome[chromenum][a-2000+b-100:a-2000+b+100]
     else:
         answer=''
-    
-    
     return answer
 
 def nonrep(length, number):
